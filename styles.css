@@ -3,8 +3,28 @@ body {
   margin: 0;
 }
 
+.quakeheader {
+    background-image: url('images/quakeheader.png');
+
+}
+
 #map,
 body,
 html {
+  height: 600px;
+  width: 100%;
+}
+
+#timeline-map,
+body,
+html {
   height: 100%;
+}
+
+.quake {
+    margin: 20px;
+}
+
+.button-div {
+    text-align: center;
 }
