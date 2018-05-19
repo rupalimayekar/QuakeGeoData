@@ -32,6 +32,7 @@ function markercolor(magnitude) {
     }
 }
 
+// function to create the circle markers
 function circleMarker(feature, latlng) {
     var geojsonMarkerOptions =  {
         fillOpacity: 0.7,
@@ -44,3 +45,27 @@ function circleMarker(feature, latlng) {
     return L.circleMarker(latlng, geojsonMarkerOptions);
 }
 
+// function to create the legend control and add it to the map
+function createLegend(map) {
+    var legend = L.control({position: 'bottomright'});
+
+    legend.onAdd = function (map) {
+
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [0, 1, 2, 3, 4, 5],
+            labels = ["lightyellow", "yellow", "lightgreen", "orange", "coral", "red"];
+
+        div.setAttribute("style", "background-color:#777777;padding:3px;color:#FFFFFF;");
+
+        // loop through our density intervals and generate a label with a colored square for each interval
+        for (var i = 0; i < grades.length; i++) {
+            div.innerHTML +=
+                // '<i style="background:' + markerColor(grades[i] + 1) + '"></i> ' +
+                '<i style="background:' + labels[i] + '">&nbsp;&nbsp;&nbsp;</i> ' +
+                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+        }
+
+        return div;
+    };
+    legend.addTo(map);
+}

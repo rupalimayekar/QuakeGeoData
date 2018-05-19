@@ -81,5 +81,8 @@ function eqfeed_callback(data){
         timelineControl.addTimelines(timeline);
         timeline.addTo(timelineMap);
 
+        // create the legend
+        createLegend(timelineMap);
+
     });
 };
