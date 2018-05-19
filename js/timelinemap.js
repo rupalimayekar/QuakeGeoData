@@ -12,7 +12,7 @@ var outdoorMap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/outdoors-v
 // in this function and then proceed with creation of the map
 function eqfeed_callback(data){
     //get the tectonic data
-    d3.json("tectonic.json", function(json) {
+    d3.json("data/tectonic.json", function(json) {
 
         // create the tectonic layer 
         var tectonicLayer = L.geoJSON(json.features, {

@@ -75,7 +75,7 @@ d3.json(earthquakeUrl, function(data) {
     console.log(data.features);
 
     // get the tectonic plate data
-    d3.json("tectonic.json", function(json) {
+    d3.json("data/tectonic.json", function(json) {
         console.log("Techtonic Data: ", json);
         createFeatures(data.features, json.features);
     });
